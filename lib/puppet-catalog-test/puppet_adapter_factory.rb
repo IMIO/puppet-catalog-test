@@ -10,7 +10,7 @@ class PuppetCatalogTest::PuppetAdapterFactory
   def self.create_adapter(config)
     return PuppetCatalogTest::Puppet3xAdapter.new(config) if Puppet.version.start_with?('3.')
 
-    return PuppetCatalogTest::Puppet4xAdapter.new(config) if Puppet.version =~ /^(4|5|6)/
+    return PuppetCatalogTest::Puppet4xAdapter.new(config) if Puppet.version =~ /^(4|5|6|7)/
 
     raise RuntimeException, "Unsupported Puppet version detected (#{Puppet.version})"
   end
