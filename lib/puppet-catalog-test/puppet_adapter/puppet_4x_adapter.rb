@@ -32,7 +32,8 @@ class PuppetCatalogTest::Puppet4xAdapter < PuppetCatalogTest::BasePuppetAdapter
     Puppet::Test::TestHelper.before_each_test
     init_config
     node = Puppet::Node.new(hostname, facts: Puppet::Node::Facts.new('facts', facts))
-    node.merge(facts)
+    node.merge(facts.except('trusted'))
+    node.trusted_data = facts['trusted']
     node
   end
 

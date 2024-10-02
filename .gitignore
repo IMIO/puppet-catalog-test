@@ -2,9 +2,10 @@ test/cases/failing-with-hiera/hiera.yaml
 test/cases/working-with-hiera/hiera.yaml
 pkg
 test-report.md
-Gemfile.lock
 .ruby-version
 last-test.log
 run-all-tests
 docker-test/share
 docker-test/cache
+.direnv
+.pre-commit-config.yaml
