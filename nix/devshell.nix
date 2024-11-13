@@ -5,15 +5,6 @@
   perSystem = { config, pkgs, ... }:
     {
       devshells.default =
-        let
-          gems = pkgs.bundlerEnv {
-            name = "puppet-catalog-test-env";
-            ruby = pkgs.ruby_3_2;
-            gemfile = ../Gemfile;
-            lockfile = ../Gemfile.lock;
-            gemset = ../gemset.nix;
-          };
-        in
         {
           packages =
             [
@@ -21,8 +12,8 @@
               pkgs.jq
               pkgs.vault
               pkgs.bundix
-              (lib.hiPrio gems)
-              gems.wrappedRuby
+              (lib.hiPrio pkgs.puppet-catalog-test-env)
+              pkgs.puppet-catalog-test-env.wrappedRuby
               pkgs.ruby-lsp
             ];
           devshell.startup.pre-commit.text = config.pre-commit.installationScript;
