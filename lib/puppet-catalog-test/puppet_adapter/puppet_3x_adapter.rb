@@ -17,7 +17,7 @@ class PuppetCatalogTest::Puppet3xAdapter < PuppetCatalogTest::BasePuppetAdapter
 
     Puppet::Test::TestHelper.before_all_tests
 
-    Puppet::Node::Environment.new.modules_by_path.each do |_, mod|
+    Puppet::Node::Environment.new.modules_by_path.each_value do |mod|
       mod.entries.each do |entry|
         ldir = entry.plugin_directory
         $LOAD_PATH << ldir unless $LOAD_PATH.include?(ldir)

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#shellcheck disable=SC1091
 source /etc/profile.d/rvm.sh
 ruby -v
 type -p bundler || gem install bundler

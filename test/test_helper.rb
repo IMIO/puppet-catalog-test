@@ -41,7 +41,7 @@ class PuppetCatalogTestCase < Test::Unit::TestCase
     hiera_path = File.join(File.dirname(File.expand_path(__FILE__)), '..', base_dir)
     hiera_yml = File.join(hiera_path, 'hiera.yaml')
 
-    return hiera_yml if FileTest.exists?(hiera_yml)
+    return hiera_yml if FileTest.exist?(hiera_yml)
 
     nil
   end
